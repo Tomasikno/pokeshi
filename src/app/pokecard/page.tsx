@@ -4,7 +4,6 @@
 import { Form, Button, Card, Container } from "react-bootstrap";
 import SetsList from "@/components/SetsList";
 import { useCardSearch } from "@/hooks/useCardSearch";
-import { useSetSearch } from "@/hooks/useSetsSearch";
 
 export default function Search() {
   const { query, setQuery, cards, error, loading, handleSubmit } = useCardSearch();

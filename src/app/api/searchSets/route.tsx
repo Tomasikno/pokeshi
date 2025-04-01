@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { PokemonTCG } from 'pokemon-tcg-sdk-typescript';
 
 // Ensure the API key is set server-side
@@ -9,8 +9,6 @@ if (!API_KEY) {
 }
 
 export async function GET(
-  request: NextRequest,
-  { params }: { params: { query: string } }
 ) {
 
   try {
@@ -27,7 +25,8 @@ export async function GET(
     }));
 
     return NextResponse.json({ data: setsMap });
-  } catch (error) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

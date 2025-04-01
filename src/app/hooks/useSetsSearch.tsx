@@ -12,9 +12,9 @@ export function useSetsSearch() {
         if (!response.ok) {
           throw new Error("Failed to fetch Pokémon sets");
         }
-        const data = await response.json();
+        const result = await response.json();
 
-        setSets(data);
+        setSets(result.data);
       } catch (err) {
         setError((err as Error).message);
       } finally {

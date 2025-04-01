@@ -10,10 +10,10 @@ if (!API_KEY) {
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { query: string } }
 ) {
-  const { query } = await params;
 
+  const url = new URL(request.url).href;
+  const query = url.substring(url.lastIndexOf('/') + 1)
   try {
     const [ptcgoCode, pokemonNumber] = query.split('-');
     if (!ptcgoCode || !pokemonNumber) {
@@ -27,14 +27,14 @@ export async function GET(
     }
 
     const cardId = `${sets[0].id}-${ parseInt(pokemonNumber)}`;
-    console.log(cardId);
     const card = await PokemonTCG.findCardByID(cardId);
     if (!card) {
       throw new Error(`No card found for ID: ${cardId}`);
     }
 
     return NextResponse.json({ data: card });
-  } catch (error) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
