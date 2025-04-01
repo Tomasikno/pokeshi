@@ -6,7 +6,7 @@ export default function NavBar() {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" sticky="top" className='mb-4' >
       <Container>
-        <Navbar.Brand href="/">PokeApp</Navbar.Brand>
+        <Navbar.Brand href="/">Pokeshi</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

@@ -14,7 +14,7 @@ export default function PokemonSetsList() {
                 <ListGroup style={{ maxHeight: "400px", overflowY: "auto" }}>
                     {sets && sets.map((set, index) => (
                         <ListGroup.Item key={index}>
-                            <strong> { set.code }</strong> - { set.name } 
+                            <b>{ set.code }</b> - { set.name } 
                         </ListGroup.Item>
                     ))}
                 </ListGroup>
