@@ -1,0 +1,26 @@
+/* Navbar.css */
+
+/* Style for the logo section */
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  /* Style for the two semi-circles (simplified representation) */
+  .logo-circles {
+    margin-right: 8px;
+    font-size: 1.2rem;
+  }
+  
+  /* Style for the active link (underlined) */
+  .active-link {
+    text-decoration: underline;
+    text-underline-offset: 4px; /* Space between text and underline */
+  }
+  
+  /* Optional: Adjust spacing between nav links */
+  .nav-link {
+    margin-left: 15px;
+  }
