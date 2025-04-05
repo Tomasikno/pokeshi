@@ -1,0 +1,91 @@
+// Custom Palette
+$poke-blue:   #1E90FF;
+$poke-red:    #d53b18;
+$poke-green:  #32CD32;
+$poke-yellow: #FFD700;
+$poke-purple: #8A2BE2;
+$poke-teal:   #00CED1;
+$poke-gray:   #6B7280;
+$poke-dark:   #1F2937;
+$poke-light:  #F3F4F6;
+$poke-pink:   #FF69B4;
+$poke-orange: #FF8C00;
+
+// Override Bootstrap variables (optional)
+$primary: $poke-blue;
+$danger: $poke-red;
+$success: $poke-green;
+$warning: $poke-yellow;
+$info: $poke-teal;
+$secondary: $poke-purple;
+$light: $poke-light;
+$dark: $poke-dark;
+
+// Import Bootstrap after overriding variables
+@import "~bootstrap/scss/bootstrap";
+
+/* Style for the logo section */
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* Style for the two semi-circles (simplified representation) */
+.logo-circles {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+/* Style for the active link (underlined) */
+.active-link {
+  text-decoration: underline;
+  text-underline-offset: 4px; /* Space between text and underline */
+}
+
+/* Optional: Adjust spacing between nav links */
+.nav-link {
+  margin-left: 15px;
+}
+
+.zoom{
+  transition: transform .2s;
+}
+
+.zoom:hover {
+  transform: scale(1.04); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid #000000;
+  animation:
+    l20-1 0.8s infinite linear alternate,
+    l20-2 1.6s infinite linear;
+}
+@keyframes l20-1{
+   0%    {clip-path: polygon(50% 50%,0       0,  50%   0%,  50%    0%, 50%    0%, 50%    0%, 50%    0% )}
+   12.5% {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100%   0%, 100%   0%, 100%   0% )}
+   25%   {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100% 100%, 100% 100%, 100% 100% )}
+   50%   {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100% 100%, 50%  100%, 0%   100% )}
+   62.5% {clip-path: polygon(50% 50%,100%    0, 100%   0%,  100%   0%, 100% 100%, 50%  100%, 0%   100% )}
+   75%   {clip-path: polygon(50% 50%,100% 100%, 100% 100%,  100% 100%, 100% 100%, 50%  100%, 0%   100% )}
+   100%  {clip-path: polygon(50% 50%,50%  100%,  50% 100%,   50% 100%,  50% 100%, 50%  100%, 0%   100% )}
+}
+@keyframes l20-2{ 
+  0%    {transform:scaleY(1)  rotate(0deg)}
+  49.99%{transform:scaleY(1)  rotate(135deg)}
+  50%   {transform:scaleY(-1) rotate(0deg)}
+  100%  {transform:scaleY(-1) rotate(-135deg)}
+}
+
+.toast-scrollable {
+  position: absolute !important; /* Override fixed positioning */
+  bottom: 20px;
+  right: 20px;
+  z-index: 1050; /* Ensure it stays above other content */
+}

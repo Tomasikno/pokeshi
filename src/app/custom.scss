@@ -1,0 +1,95 @@
+$blue:    #0d6efd;
+$indigo:  #6610f2;
+$purple:  #6f42c1;
+$pink:    #d63384;
+$red:     #dc3545;
+$orange:  #fd7e14;
+$yellow:  #ffc107;
+$green:   #198754;
+$teal:    #20c997;
+$cyan:    #0dcaf0;
+
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black:    #000;
+
+// Primary Colors
+$poke-blue:   #1E90FF;  // Water-inspired primary
+$poke-red:    #FF4500;  // Fire-inspired danger
+$poke-green:  #32CD32;  // Grass-inspired success
+
+// Secondary Colors
+$poke-yellow: #FFD700;  // Electric-inspired warning/highlight
+$poke-purple: #8A2BE2;  // Psychic-inspired secondary
+$poke-teal:   #00CED1;  // Versatile info/hover
+
+// Neutral Colors
+$poke-gray:   #6B7280;  // Text and borders
+$poke-dark:   #1F2937;  // Headers and contrast
+$poke-light:  #F3F4F6;  // Backgrounds
+
+// Accent Colors
+$poke-pink:   #FF69B4;  // Fairy-inspired fun
+$poke-orange: #FF8C00;  // Energy and loading
+
+$primary:       $blue;
+$secondary:     $gray-600;
+$success:       $green;
+$info:          $cyan;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $gray-100;
+$dark:          $gray-900;
+
+$primary-text-emphasis:   shade-color($primary, 60%);
+$secondary-text-emphasis: shade-color($secondary, 60%);
+$success-text-emphasis:   shade-color($success, 60%);
+$info-text-emphasis:      shade-color($info, 60%);
+$warning-text-emphasis:   shade-color($warning, 60%);
+$danger-text-emphasis:    shade-color($danger, 60%);
+$light-text-emphasis:     $gray-700;
+$dark-text-emphasis:      $gray-700;
+
+
+$theme-colors-text: (
+  "primary": $primary-text-emphasis,
+  "secondary": $secondary-text-emphasis,
+  "success": $success-text-emphasis,
+  "info": $info-text-emphasis,
+  "warning": $warning-text-emphasis,
+  "danger": $danger-text-emphasis,
+  "light": $light-text-emphasis,
+  "dark": $dark-text-emphasis,
+);
+
+
+$primary-text-emphasis-dark:        tint-color($primary, 40%);
+$secondary-text-emphasis-dark:      tint-color($secondary, 40%);
+$success-text-emphasis-dark:        tint-color($success, 40%);
+$info-text-emphasis-dark:           tint-color($info, 40%);
+$warning-text-emphasis-dark:        tint-color($warning, 40%);
+$danger-text-emphasis-dark:         tint-color($danger, 40%);
+$light-text-emphasis-dark:          $gray-100;
+$dark-text-emphasis-dark:           $gray-300;
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
