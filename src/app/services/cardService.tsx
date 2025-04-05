@@ -1,12 +1,12 @@
-import { PokemonTCG } from "pokemon-tcg-sdk-typescript";
+import { CardWithStatus } from "app/lib/CardWithStatus";
 
 interface ApiResponse {
-  data: PokemonTCG.Card;
+  data: CardWithStatus;
 }
 
-const cardCache = new Map<string, PokemonTCG.Card>();
+const cardCache = new Map<string, CardWithStatus>();
 
-export async function fetchCard(ptcgoCode: string, pokemonNumber: string): Promise<PokemonTCG.Card> {
+export async function fetchCard(ptcgoCode: string, pokemonNumber: string): Promise<CardWithStatus> {
   if (!ptcgoCode || !pokemonNumber) {
     throw new Error('Invalid format. Use "SET NUMBER" (e.g., "PRE 011")');
   }
