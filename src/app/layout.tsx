@@ -3,7 +3,7 @@ import './globals.css';
 import { Inter } from 'next/font/google';
 import BootstrapClient from '@/components/BootstrapClient';
 import { Container } from 'react-bootstrap';
-import NavBar from './components/Navbar';
+import CustomNavBar from './components/Navbar';
 import { ReactNode } from 'react';
 
 const inter = Inter({ subsets: ['latin'] })
@@ -21,7 +21,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NavBar/>
+        <CustomNavBar/>
         <Container>
           {children}
         </Container>
