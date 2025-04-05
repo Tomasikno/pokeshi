@@ -1,6 +1,6 @@
 "use client";
 
-import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 
 export default function NavBar() {
   return (
