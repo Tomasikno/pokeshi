@@ -4,7 +4,6 @@ interface ApiResponse {
   data: PokemonTCG.Card;
 }
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000';
 const cardCache = new Map<string, PokemonTCG.Card>();
 
 export async function fetchCard(ptcgoCode: string, pokemonNumber: string): Promise<PokemonTCG.Card> {
@@ -18,7 +17,7 @@ export async function fetchCard(ptcgoCode: string, pokemonNumber: string): Promi
   }
 
   try {
-    const response = await fetch(`${API_BASE_URL}/api/search/${apiQuery}`, {
+    const response = await fetch(`/api/search/${apiQuery}`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     });
