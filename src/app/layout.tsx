@@ -1,5 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.css';
-import './globals.css';
+import './globals.scss';
 import { Inter } from 'next/font/google';
 import BootstrapClient from '@/components/BootstrapClient';
 import { Container } from 'react-bootstrap';
