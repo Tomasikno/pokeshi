@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { fetchCard } from "@/services/cardService";
-import { PokemonTCG } from "pokemon-tcg-sdk-typescript";
+import { CardWithStatus } from "app/lib/CardWithStatus";
 import { IToastState } from "@/components/MessageToast/IToastState"
 
 export function useCardSearch() {
   const [query, setQuery] = useState("");
-  const [cards, setCards] = useState<PokemonTCG.Card[]>([]);
+  const [cards, setCards] = useState<CardWithStatus[]>([]);
   const [loading, setLoading] = useState(false);
   const [toastMessage, setToastMessage] = useState<IToastState | null>(null);
 
@@ -29,7 +29,7 @@ export function useCardSearch() {
 
       const newCard = await fetchCard(ptcgoCode, pokemonNumber);
       const storedCards = localStorage.getItem('savedCards');
-      const currentCards: PokemonTCG.Card[] = storedCards ? JSON.parse(storedCards) : [];
+      const currentCards: CardWithStatus[] = storedCards ? JSON.parse(storedCards) : [];
 
       const cardExists = currentCards.some(card => card.id === newCard.id);
       if (!cardExists) {
@@ -62,15 +62,28 @@ export function useCardSearch() {
     setCards([]);
   };
 
+  const toggleAcquired = (cardId: string) => {
+    const updatedCards = cards.map(card =>
+      card.id === cardId ? { ...card, acquired: !card.acquired } : card
+    );
+    localStorage.setItem('savedCards', JSON.stringify(updatedCards));
+    setCards(updatedCards);
+    const card = updatedCards.find(c => c.id === cardId);
+    setToastMessage({
+      message: `${card?.name} marked as ${card?.acquired ? 'acquired' : 'unmarked'}.`,
+      variant: "success",
+    });
+  };
   return {
     query,
     cards,
     loading,
+    toastMessage,
     handleSubmit,
     setQuery,
     removeCard,
     clearSavedCards,
-    toastMessage,
     setToastMessage,
+    toggleAcquired
   };
 }

@@ -89,3 +89,7 @@ $dark: $poke-dark;
   right: 20px;
   z-index: 1050; /* Ensure it stays above other content */
 }
+
+.acquired-card {
+  filter: grayscale(60%);
+}
